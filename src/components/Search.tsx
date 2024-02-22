@@ -2,6 +2,18 @@ import { Form, FormControl, FormField, FormItem } from "./ui/form";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Search as LocalSearch} from "lucide-react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+
+const formSchema = z.object({
+  searchQuery: z.string({
+    required_error: "Restaurant name is required",
+  }),
+});
+
+export type SearchForm = z.infer<typeof formSchema>;
 
 
 type Props = {
@@ -11,11 +23,17 @@ type Props = {
     searchQuery?: string;
   };
 
-const Search = ({placeHolder}:Props) => {
+const Search = ({placeHolder, searchQuery}:Props) => {
+  const form = useForm<SearchForm>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      searchQuery,
+    },
+  });
   return (
-    <Form >
+    <Form {...form}>
       <form
-        className={`flex items-center gap-3 justify-between flex-row border-2 rounded-full p-3 ${
+        className={`flex items-center gap-3 justify-between flex-row border-2 rounded-full p-3 w-[50%] m-auto ${
           "border-red-500"
         }`}
       >

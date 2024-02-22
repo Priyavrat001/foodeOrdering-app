@@ -10,6 +10,9 @@ const HomePage = () => {
                     Tuck into a takeway today
                 </h1>
                 <span className="text-xl">Food is just a click away!</span>
+                    <SearchBar
+                        placeHolder="Search by City or Town"
+                    />
             </div>
             <div className="grid md:grid-cols-2 gap-5">
                 <img src={landingImage} alt="landing image" />
@@ -17,9 +20,6 @@ const HomePage = () => {
                     <span className="font-bold text-3xl tracking-tighter">
                         Order takeaway even faster!
                     </span>
-                    <SearchBar
-                        placeHolder="Search by City or Town"
-                    />
                     <span>
                         Download the FoodeOrdering App for faster ordering and personalised recommendations
                     </span>
