@@ -33,7 +33,7 @@ const Search = ({placeHolder, searchQuery}:Props) => {
   return (
     <Form {...form}>
       <form
-        className={`flex items-center gap-3 justify-between flex-row border-2 rounded-full p-3 w-[50%] m-auto ${
+        className={`flex items-center gap-3 justify-between flex-row border-2 rounded-full p-3 m-auto ${
           "border-red-500"
         }`}
       >
